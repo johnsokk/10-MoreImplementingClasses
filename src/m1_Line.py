@@ -227,6 +227,7 @@ class Line(object):
         # ---------------------------------------------------------------------
         self.start = start.clone()
         self.end = end.clone()
+        self.number_of_clones = 0
     def __repr__(self):
         """
         What comes in:
@@ -327,7 +328,9 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
+        self.number_of_clones = self.number_of_clones + 1
         return Line(self.start, self.end)
+
 
         # ---------------------------------------------------------------------
         # DONE: 4.
@@ -483,8 +486,12 @@ class Line(object):
         Type hints:
           :rtype: int:
         """
+
+        return self.number_of_clones
+
+
         # ---------------------------------------------------------------------
-        # TODO: 8.
+        # DONE: 8.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -517,8 +524,11 @@ class Line(object):
           :type  other_line: Line
           :rtype: Line:
         """
+
+        newline = Line(Point(self.start.x + other_line.start.x, self.start.y + other_line.start.y), Point(self.end.x + other_line.end.x, self.end.y + other_line.end.y))
+        return newline
         # ---------------------------------------------------------------------
-        # TODO: 9.
+        # DONE: 9.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
