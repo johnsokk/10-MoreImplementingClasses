@@ -228,6 +228,8 @@ class Line(object):
         self.start = start.clone()
         self.end = end.clone()
         self.number_of_clones = 0
+        self.originstart = start.clone()
+        self.originend = end.clone()
     def __repr__(self):
         """
         What comes in:
@@ -630,8 +632,20 @@ class Line(object):
           :type  line2: Line
           :rtype: bool
         """
+        if self.end.x - self.start.x == 0:
+            slope = math.inf
+        else:
+            slope = (self.end.y - self.start.y)/(self.end.x - self.start.x)
+        if line2.end.x - line2.start.x == 0:
+            slope2 = math.inf
+        else:
+            slope2 = (line2.end.y - line2.start.y)/(line2.end.x-line2.start.x)
+        if round(slope, 12) == round(slope2, 12):
+            return True
+        return False
+
         # ---------------------------------------------------------------------
-        # TODO: 12.
+        # DONE: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -696,8 +710,10 @@ class Line(object):
             print(line1)  # Should print: Line[(-3, -4), (3, 4)]
             print(line2)  # Should print: Line[(0, 1), (10, 20)]
         """
+        self.start = self.originstart
+        self.end = self.originend
         # ---------------------------------------------------------------------
-        # TODO: 13.
+        # DONE: 13.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
