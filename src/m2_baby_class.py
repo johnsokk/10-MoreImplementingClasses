@@ -3,8 +3,8 @@ A   Baby   class and functions that use/test it.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Kaia Johnson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -41,8 +41,34 @@ def main():
             mckinley.hour_passes()
 
 
+class Baby(object):
+
+    def __init__(self, name):
+        self.name = name
+        print('Hello baby' + self.name + '!')
+        self.time = 0
+
+    def feed_baby(self):
+        print('Thank you for feeding baby' + self.name + '.')
+        self.time = 0
+
+    def hour_passes(self):
+        self.time = self.time + 1
+        if self.time == 1:
+            print('Baby' + self.name + 'is sleeping.')
+        elif self.time == 2:
+            print('Baby' + self.name + 'is awake.  Time for food.')
+        elif self.time >= 3:
+            print('Baby' + self.name + 'is CRYING uncontrollably!  Feed the Baby!')
+
+
+
+
+
+
+
 ###############################################################################
-# TODO: 2.
+# DONE: 2.
 #
 #  Step 2a:  Implement a class called   Baby   that has a constructor method
 #            (__init__) and two other methods, as described below.
